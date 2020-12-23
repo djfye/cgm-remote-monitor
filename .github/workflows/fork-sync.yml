@@ -2,8 +2,7 @@ name: Fork Sync
 
 on:
   schedule:
-    - cron: '0 3 * * *' # every 3:00AM of every day
-  workflow_dispatch: # on button click
+    - cron: '30 */6 * * *' # every 3:00AM of every day
 
 jobs:
   sync:
@@ -13,7 +12,7 @@ jobs:
     steps:
       - uses: tgymnich/fork-sync@v1.3.0
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: 4fda783e5672a2d9dbf96de93bf0e4d0d6d9af55
           owner: djfye
           base: dev
           head: dev
