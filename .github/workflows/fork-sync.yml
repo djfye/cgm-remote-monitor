@@ -2,7 +2,7 @@ name: Fork Sync
 
 on:
   schedule:
-    - cron: '30 */6 * * *' # every 3:00AM of every day
+    - cron: '30 */6 * * *' # 30th minute of every 6th hour every day
 
 jobs:
   sync:
