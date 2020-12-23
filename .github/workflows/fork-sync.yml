@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: tgymnich/fork-sync@v1.3.0
         with:
-          github_token: 4fda783e5672a2d9dbf96de93bf0e4d0d6d9af55
+          github_token: ${{ secrets.API_TOLKEN }}
           owner: djfye
           base: dev
           head: dev
