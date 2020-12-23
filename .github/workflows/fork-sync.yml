@@ -2,7 +2,7 @@ name: Fork Sync
 
 on:
   schedule:
-    - cron: '30 */6 * * *' # 30th minute of every 6th hour every day
+    - cron: '30 */6 * * *' # 30th minute of every 6 hours every day
   workflow_dispatch:
 
 jobs:
@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: tgymnich/fork-sync@v1.3.0
+      - uses: tgymnich/fork-sync@v1.2.1
         with:
           github_token: ${{ secrets.API_TOLKEN }}
           owner: djfye
