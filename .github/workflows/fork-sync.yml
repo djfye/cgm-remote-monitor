@@ -3,6 +3,7 @@ name: Fork Sync
 on:
   schedule:
     - cron: '30 */6 * * *' # 30th minute of every 6th hour every day
+  workflow_dispatch:
 
 jobs:
   sync:
