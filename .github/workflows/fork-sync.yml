@@ -2,20 +2,21 @@ name: Fork Sync
 
 on:
   schedule:
-    - cron: '30 */6 * * *' # 30th minute of every 6 hours every day
+  - cron: '30 */6 * * *' # 30th minute of every 6 hours every day
   workflow_dispatch:
 
 jobs:
-  sync:
-
+  repo-sync:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: tgymnich/fork-sync@v1.4.2
-        with:
-          token: ${{ secrets.PERSONAL_TOKEN }}
-          owner: nightscout
-          base: dev
-          head: dev
-          # auto_approve: true
-          pr_title: Merge
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+    - name: repo-sync
+      uses: repo-sync/github-sync@v2
+      with:
+        source_repo: "nightscout/cgm-remote-monitor"
+        source_branch: "*"
+        destination_branch: "*"
+        sync_tags: "true"
+        github_token: ${{ secrets.PERSONAL_TOKEN }}
